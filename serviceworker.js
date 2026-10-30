@@ -1,5 +1,4 @@
-
-const CACHE_NAME = "flaremap-v1";
+const CACHE_NAME = "flaremap-v2";
 
 const FILES_TO_CACHE = [
   "./",
