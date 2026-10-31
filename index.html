@@ -1,85 +1,138 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlareMap | Home Monitoring</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#080d18">
+  <title>FlareMap | Pink Edition</title>
+
+  <meta name="theme-color" content="#fce7f3">
+  <meta name="description" content="FlareMap home fire, smoke and gas monitoring dashboard.">
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
   <header class="header">
-    <div>
-      <h1>🔥 FlareMap</h1>
-      <p>Home Fire, Smoke and Gas Monitoring</p>
+    <div class="brand">
+      <div class="brand-icon">🔥</div>
+      <div>
+        <h1>FlareMap</h1>
+        <p>Smart Home Safety Monitoring</p>
+      </div>
     </div>
-    <span class="status-dot">Prototype</span>
+    <span class="prototype-badge">PROTOTYPE</span>
   </header>
 
-  <main>
+  <main class="container">
+
+    <section class="welcome">
+      <p class="eyebrow">HOME MONITORING SYSTEM</p>
+      <h2>Welcome to FlareMap 💗</h2>
+      <p>Monitor your home's environmental conditions in one place.</p>
+    </section>
+
     <section class="panel">
-      <h2>System Status</h2>
+      <div class="section-heading">
+        <h2>System Status</h2>
+        <span class="live-indicator"></span>
+      </div>
       <p id="connection">ESP32: Not connected</p>
       <p id="alert">Waiting for sensor data</p>
     </section>
 
-    <section>
-      <h2>Sensor Readings</h2>
+    <section class="sensor-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">LIVE MONITORING</p>
+          <h2>Sensor Readings</h2>
+        </div>
+        <span class="section-icon">📊</span>
+      </div>
 
       <div class="readings">
 
-        <article class="reading-card">
-          <span>🌡️</span>
+        <article class="reading-card temperature-card">
+          <span class="sensor-icon">🌡️</span>
           <h3>Temperature</h3>
           <p id="temperature">-- °C</p>
+          <small>DHT22 Sensor</small>
         </article>
 
-        <article class="reading-card">
-          <span>💧</span>
+        <article class="reading-card humidity-card">
+          <span class="sensor-icon">💧</span>
           <h3>Humidity</h3>
           <p id="humidity">-- %</p>
+          <small>DHT22 Sensor</small>
         </article>
 
-        <article class="reading-card">
-          <span>🌫️</span>
-          <h3>MQ-2 Smoke Detector</h3>
+        <article class="reading-card smoke-card">
+          <span class="sensor-icon">🌫️</span>
+          <h3>Smoke Detector</h3>
           <p id="smoke">--</p>
-          <small>Raw sensor reading</small>
+          <small>MQ-2 · Raw reading</small>
         </article>
 
-        <article class="reading-card">
-          <span>🔥</span>
-          <h3>MQ-5 Gas Detector</h3>
+        <article class="reading-card gas-card">
+          <span class="sensor-icon">🔥</span>
+          <h3>Gas Detector</h3>
           <p id="gas">--</p>
-          <small>LPG / Natural Gas · Raw reading</small>
+          <small>MQ-5 · Raw reading</small>
         </article>
 
       </div>
     </section>
 
     <section class="panel">
-      <h2>House Room Map</h2>
-      <p class="hint">Example layout — customize the rooms later.</p>
+      <div class="section-heading">
+        <h2>House Room Map</h2>
+        <span class="section-icon">🏠</span>
+      </div>
+
+      <p class="hint">Example room layout</p>
 
       <div class="house-map">
-        <div class="room">Bedroom 1</div>
-        <div class="room">Bedroom 2</div>
-        <div class="room">Living Room</div>
-        <div class="room">Kitchen</div>
+        <div class="room">
+          <span>🛏️</span>
+          <strong>Bedroom 1</strong>
+        </div>
+
+        <div class="room">
+          <span>🛏️</span>
+          <strong>Bedroom 2</strong>
+        </div>
+
+        <div class="room">
+          <span>🛋️</span>
+          <strong>Living Room</strong>
+        </div>
+
+        <div class="room">
+          <span>🍳</span>
+          <strong>Kitchen</strong>
+        </div>
       </div>
     </section>
 
-    <p class="disclaimer">
-      Educational prototype only. Not a certified fire alarm,
-      gas detector or replacement for certified smoke, fire
-      and carbon monoxide alarms.
-    </p>
+    <section class="disclaimer">
+      <strong>Safety Notice</strong>
+      <p>
+        Educational prototype only. FlareMap is not a certified fire,
+        smoke, gas or carbon monoxide alarm and does not replace
+        certified safety devices.
+      </p>
+    </section>
+
+    <footer>
+      <p>Made with 💗 for FlareMap</p>
+    </footer>
+
   </main>
 
-  <script src="app.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>
