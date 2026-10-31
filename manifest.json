@@ -1,9 +1,9 @@
 
 {
   "id": "./",
-  "name": "FlareMap - Home Safety Monitoring",
+  "name": "FlareMap - Smart Home Monitoring",
   "short_name": "FlareMap",
-  "description": "Smart home fire, smoke and gas monitoring dashboard.",
+  "description": "IoT temperature, gas and carbon monoxide monitoring dashboard.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
