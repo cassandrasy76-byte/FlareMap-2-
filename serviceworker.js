@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "flaremap-pink-v6";
+const CACHE_NAME = "flaremap-pink-v7";
 
 const FILES_TO_CACHE = [
   "./",
@@ -7,15 +7,14 @@ const FILES_TO_CACHE = [
   "./style.css",
   "./app.js",
   "./manifest.json",
-  "./icon-192.png",
-  "./icon-512.png"
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
+  "./firebase-messaging-sw.js"
 ];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
-      // Cache app files, but don't let a missing optional icon
-      // prevent the service worker from installing.
       for (const file of FILES_TO_CACHE) {
         try {
           await cache.add(file);
@@ -67,32 +66,5 @@ self.addEventListener("fetch", (event) => {
     caches.match(event.request).then((cached) => {
       return cached || fetch(event.request);
     })
-  );
-});
-
-// Push notifications received from a push service.
-// This handler requires a push subscription and a server
-// that actually sends push messages.
-self.addEventListener("push", (event) => {
-  let data = {};
-
-  try {
-    data = event.data ? event.data.json() : {};
-  } catch {
-    data = {
-      title: "FlareMap Alert",
-      body: event.data ? event.data.text() : "New sensor alert."
-    };
-  }
-
-  event.waitUntil(
-    self.registration.showNotification(
-      data.title || "FlareMap Alert",
-      {
-        body: data.body || "A sensor alert needs attention.",
-        icon: "./icon-192.png",
-        badge: "./icon-192.png"
-      }
-    )
   );
 });
