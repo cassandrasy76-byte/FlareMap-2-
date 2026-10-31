@@ -171,7 +171,7 @@ enablePushButton?.addEventListener("click", async () => {
       throw new Error("Notifications are not supported.");
     }
 
-    if (
+  
       FLAREMAP_VAPID_KEY ===
       "BKxUMBei3vHExEPRaHhDrw0g0NJaO7r21gA5r0sG3fP-Y-qTgg9_t1_7ZMDKyg4Lwp0vHeNdK8deiPqvAEYk6Ds"
     ) {
