@@ -1,145 +1,156 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>FlareMap | Home Monitoring</title>
-
-  <meta name="description" content="FlareMap smart home fire, smoke and gas monitoring dashboard.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ec4899">
 
+  <title>FlareMap | Smart Home Monitoring</title>
+
   <link rel="manifest" href="./manifest.json">
-  <link rel="icon" href="./icon-192.png" type="image/png">
-  <link rel="apple-touch-icon" href="./icon-192.png">
   <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./icon-192.png" type="image/png">
 </head>
 
 <body>
-
   <header class="header">
-    <div class="brand">
-      <div class="brand-icon">🔥</div>
-      <div>
-        <h1>FlareMap</h1>
-        <p>Smart Home Safety Monitoring</p>
-      </div>
+    <div>
+      <h1>🔥 FlareMap</h1>
+      <p>Smart Home Fire and Gas Monitoring</p>
     </div>
-
-    <span class="prototype-badge">PROTOTYPE</span>
+    <span class="badge">Prototype</span>
   </header>
 
   <main class="container">
 
-    <section class="welcome">
-      <p class="eyebrow">HOME MONITORING SYSTEM</p>
-      <h2>Welcome to FlareMap 💗</h2>
-      <p>Monitor your home's environmental conditions in one place.</p>
+    <section class="install-card">
+      <h2>📲 Install FlareMap</h2>
+      <p>Add FlareMap to your Android home screen.</p>
+      <button id="installButton" hidden>Install App</button>
+      <p id="installMessage">Checking installation availability...</p>
     </section>
 
-    <section class="panel">
-      <div class="section-heading">
-        <h2>System Status</h2>
-        <span class="live-indicator"></span>
-      </div>
-
-      <p id="connection">ESP32: Not connected</p>
-      <p id="alert">Waiting for sensor data</p>
+    <section class="status-card">
+      <h2>System Status</h2>
+      <p id="connection">Device: Demo mode</p>
+      <p id="alert">Status: Sample data only</p>
+      <p id="lastUpdate">Last update: --</p>
     </section>
 
-    <section class="sensor-section">
+    <section>
+      <h2 class="section-title">Sensor Monitoring</h2>
 
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">LIVE MONITORING</p>
-          <h2>Sensor Readings</h2>
-        </div>
-        <span class="section-icon">📊</span>
-      </div>
-
-      <div class="readings">
-
-        <article class="reading-card temperature-card">
-          <span class="sensor-icon">🌡️</span>
+      <div class="sensor-grid">
+        <article class="sensor-card">
+          <div class="sensor-icon">🌡️</div>
           <h3>Temperature</h3>
-          <p id="temperature">-- °C</p>
-          <small>DHT22 Sensor</small>
+          <p id="temperature" class="reading">-- °C</p>
+          <small>DHT22</small>
         </article>
 
-        <article class="reading-card humidity-card">
-          <span class="sensor-icon">💧</span>
+        <article class="sensor-card">
+          <div class="sensor-icon">💧</div>
           <h3>Humidity</h3>
-          <p id="humidity">-- %</p>
-          <small>DHT22 Sensor</small>
+          <p id="humidity" class="reading">-- %</p>
+          <small>DHT22</small>
         </article>
 
-        <article class="reading-card smoke-card">
-          <span class="sensor-icon">🌫️</span>
-          <h3>Smoke Detector</h3>
-          <p id="smoke">--</p>
-          <small>MQ-2 · Raw reading</small>
+        <article class="sensor-card">
+          <div class="sensor-icon">🔥</div>
+          <h3>LPG / Natural Gas</h3>
+          <p id="mq5" class="reading">--</p>
+          <small>MQ-5 · Raw sensor reading</small>
         </article>
 
-        <article class="reading-card gas-card">
-          <span class="sensor-icon">🔥</span>
-          <h3>Gas Detector</h3>
-          <p id="gas">--</p>
-          <small>MQ-5 · Raw reading</small>
+        <article class="sensor-card">
+          <div class="sensor-icon">⚠️</div>
+          <h3>Carbon Monoxide</h3>
+          <p id="mq7" class="reading">--</p>
+          <small>MQ-7 · Raw sensor reading</small>
         </article>
-
       </div>
     </section>
 
-    <section class="panel">
-      <div class="section-heading">
-        <h2>House Room Map</h2>
-        <span class="section-icon">🏠</span>
+    <section class="notification-card">
+      <h2>🔔 Notifications</h2>
+
+      <p id="notificationStatus">
+        Notifications are not enabled.
+      </p>
+
+      <button id="enableNotifications">
+        Enable Notifications
+      </button>
+
+      <div class="sound-settings">
+        <h3>🔊 Alert Sound</h3>
+
+        <label class="sound-toggle">
+          <input type="checkbox" id="soundEnabled" checked>
+          Enable alert sound
+        </label>
+
+        <button id="testSound" type="button">
+          Test Alert Sound
+        </button>
+
+        <p class="sound-note">
+          Repeats every 5 seconds while an alert is active.
+        </p>
       </div>
 
-      <p class="hint">Example room layout</p>
+      <div id="notificationList">
+        <p>No new alerts.</p>
+      </div>
+    </section>
 
-      <div class="house-map">
+    <section>
+      <h2 class="section-title">Room Monitoring</h2>
 
-        <div class="room">
+      <div class="room-grid">
+        <article class="room-card">
           <span>🛏️</span>
-          <strong>Bedroom 1</strong>
-        </div>
+          <h3>Bedroom 1</h3>
+          <p>Demo monitoring</p>
+        </article>
 
-        <div class="room">
+        <article class="room-card">
           <span>🛏️</span>
-          <strong>Bedroom 2</strong>
-        </div>
+          <h3>Bedroom 2</h3>
+          <p>Demo monitoring</p>
+        </article>
 
-        <div class="room">
+        <article class="room-card">
           <span>🛋️</span>
-          <strong>Living Room</strong>
-        </div>
+          <h3>Living Room</h3>
+          <p>Demo monitoring</p>
+        </article>
 
-        <div class="room">
+        <article class="room-card">
           <span>🍳</span>
-          <strong>Kitchen</strong>
-        </div>
-
+          <h3>Kitchen</h3>
+          <p>Demo monitoring</p>
+        </article>
       </div>
     </section>
 
-    <section class="disclaimer">
+    <section class="notice">
       <strong>Safety Notice</strong>
       <p>
-        Educational prototype only. FlareMap is not a certified
-        fire, smoke, gas or carbon monoxide alarm and does not
-        replace certified safety devices.
+        FlareMap is an educational prototype. It is not a certified
+        fire, smoke, gas, or carbon monoxide alarm. Do not use it
+        instead of approved safety equipment.
       </p>
     </section>
 
-    <footer>
-      <p>Made with 💗 for FlareMap</p>
-    </footer>
-
   </main>
 
-  <script src="./app.js"></script>
+  <footer>
+    <p>FlareMap © Student Prototype</p>
+  </footer>
 
+  <script src="./app.js" defer></script>
 </body>
 </html>
