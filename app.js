@@ -26,8 +26,8 @@ const alertDisplay = document.getElementById("alert");
 function updateDashboard() {
   const temperature = (25 + Math.random() * 5).toFixed(1);
   const humidity = Math.round(50 + Math.random() * 15);
-  const smoke = Math.round(100 + Math.random() * 80);
-
+if (mq5Display) mq5Display.textContent = smoke;
+if (mq7Display) mq7Display.textContent = smoke;
   temperatureDisplay.textContent = temperature + " °C";
   humidityDisplay.textContent = humidity + " %";
   smokeDisplay.textContent = smoke;
