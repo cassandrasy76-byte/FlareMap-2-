@@ -1,22 +1,23 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FlareMap | Pink Edition</title>
+  <title>FlareMap | Home Monitoring</title>
 
-  <meta name="theme-color" content="#fce7f3">
-  <meta name="description" content="FlareMap home fire, smoke and gas monitoring dashboard.">
+  <meta name="description" content="FlareMap smart home fire, smoke and gas monitoring dashboard.">
+  <meta name="theme-color" content="#ec4899">
 
   <link rel="manifest" href="./manifest.json">
-  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="icon" href="./icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+
   <header class="header">
     <div class="brand">
       <div class="brand-icon">🔥</div>
@@ -25,6 +26,7 @@
         <p>Smart Home Safety Monitoring</p>
       </div>
     </div>
+
     <span class="prototype-badge">PROTOTYPE</span>
   </header>
 
@@ -41,11 +43,13 @@
         <h2>System Status</h2>
         <span class="live-indicator"></span>
       </div>
+
       <p id="connection">ESP32: Not connected</p>
       <p id="alert">Waiting for sensor data</p>
     </section>
 
     <section class="sensor-section">
+
       <div class="section-heading">
         <div>
           <p class="eyebrow">LIVE MONITORING</p>
@@ -96,6 +100,7 @@
       <p class="hint">Example room layout</p>
 
       <div class="house-map">
+
         <div class="room">
           <span>🛏️</span>
           <strong>Bedroom 1</strong>
@@ -115,15 +120,16 @@
           <span>🍳</span>
           <strong>Kitchen</strong>
         </div>
+
       </div>
     </section>
 
     <section class="disclaimer">
       <strong>Safety Notice</strong>
       <p>
-        Educational prototype only. FlareMap is not a certified fire,
-        smoke, gas or carbon monoxide alarm and does not replace
-        certified safety devices.
+        Educational prototype only. FlareMap is not a certified
+        fire, smoke, gas or carbon monoxide alarm and does not
+        replace certified safety devices.
       </p>
     </section>
 
@@ -134,5 +140,6 @@
   </main>
 
   <script src="./app.js"></script>
+
 </body>
 </html>
