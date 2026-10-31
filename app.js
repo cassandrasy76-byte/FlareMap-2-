@@ -33,7 +33,7 @@ const testSoundButton =
 // SENSOR DISPLAY
 // --------------------------------
 
-// These are sample values, not actual sensor readings.
+// Demo values only. Not actual sensor readings.
 function showDemoData() {
   const demoData = {
     temperature: (25 + Math.random() * 5).toFixed(1),
@@ -41,7 +41,7 @@ function showDemoData() {
     mq5: Math.round(100 + Math.random() * 80),
     mq7: Math.round(100 + Math.random() * 80),
 
-    // Set to true only to test the alert system.
+    // Change to true only to test the alert system.
     demoAlert: false
   };
 
@@ -151,7 +151,6 @@ async function playAlertSound() {
 function startAlertSound() {
   if (!soundEnabled.checked || alertSoundTimer !== null) return;
 
-  // Play immediately, then repeat every five seconds.
   playAlertSound();
 
   alertSoundTimer = setInterval(() => {
@@ -174,7 +173,6 @@ testSoundButton.addEventListener("click", async () => {
   await playAlertSound();
 });
 
-// Prepare audio after the user interacts with the page.
 document.addEventListener("pointerdown", () => {
   prepareAudio();
 }, { once: true });
@@ -208,10 +206,9 @@ function addAlert(message) {
   }
 
   if (notificationPermission === "granted") {
-    // Foreground browser notification.
     new Notification("FlareMap Alert", {
       body: message,
-      icon: "./icon-192.png"
+      icon: "./icons/icon-192.png"
     });
   }
 }
@@ -220,7 +217,7 @@ function checkSensorAlerts(data) {
   const currentAlerts = new Set();
 
   // DEMONSTRATION ONLY.
-  // Do not use arbitrary raw MQ readings as safety thresholds.
+  // Do not use raw MQ readings as validated safety thresholds.
   if (data.demoAlert === true) {
     currentAlerts.add("demo");
   }
