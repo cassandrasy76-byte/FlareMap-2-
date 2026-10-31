@@ -103,10 +103,55 @@
       <div id="notificationList">
         <p>No new alerts.</p>
       </div>
+       </section>
+
+    <!-- ADMINISTRATOR ACCESS -->
+    <section class="notification-card" id="adminPanel">
+      <h2>🔐 Administrator Access</h2>
+
+      <div id="adminLogin">
+        <label for="adminEmail">Admin Email</label>
+        <input
+          type="email"
+          id="adminEmail"
+          placeholder="Enter admin email"
+          autocomplete="username"
+        >
+
+        <label for="adminPassword">Password</label>
+        <input
+          type="password"
+          id="adminPassword"
+          placeholder="Enter password"
+          autocomplete="current-password"
+        >
+
+        <button id="adminLoginButton" type="button">
+          Log In
+        </button>
+      </div>
+
+      <div id="adminControls" hidden>
+        <p id="adminStatus">Administrator logged in.</p>
+
+        <button id="enablePushButton" type="button">
+          Enable Push Notifications
+        </button>
+
+        <button id="broadcastAlarmButton" type="button">
+          Send Test Alert
+        </button>
+
+        <button id="adminLogoutButton" type="button">
+          Log Out
+        </button>
+      </div>
+
+      <p id="adminMessage" role="status"></p>
     </section>
 
     <section>
-      <h2 class="section-title">Room Monitoring</h2>
+      <h2 class="section-title">Sensor Monitoring</h2>
 
       <div class="room-grid">
         <article class="room-card">
