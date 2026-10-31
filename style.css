@@ -154,12 +154,11 @@ body {
   padding: 22px;
   border-radius: 18px;
   box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .reading-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(190, 24, 93, 0.13);
 }
 
 .sensor-icon {
@@ -185,18 +184,12 @@ body {
   font-size: 12px;
 }
 
-.temperature-card {
-  background: linear-gradient(135deg, #fff, #fce7f3);
-}
-
-.humidity-card {
-  background: linear-gradient(135deg, #fff, #fdf2f8);
-}
-
+.temperature-card,
 .smoke-card {
   background: linear-gradient(135deg, #fff, #fce7f3);
 }
 
+.humidity-card,
 .gas-card {
   background: linear-gradient(135deg, #fff, #fdf2f8);
 }
@@ -306,5 +299,8 @@ footer {
 
   .reading-card p {
     font-size: 24px;
+  }
+}
+
   }
 }
