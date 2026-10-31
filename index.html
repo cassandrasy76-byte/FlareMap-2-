@@ -5,13 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FlareMap | Home Monitoring</title>
-  <link rel="stylesheet" href="style.css"><link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#080d18">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080d18">
+</head>
+
 <body>
   <header class="header">
     <div>
       <h1>🔥 FlareMap</h1>
-      <p>Home Fire and Smoke Monitoring</p>
+      <p>Home Fire, Smoke and Gas Monitoring</p>
     </div>
     <span class="status-dot">Prototype</span>
   </header>
@@ -27,6 +31,7 @@
       <h2>Sensor Readings</h2>
 
       <div class="readings">
+
         <article class="reading-card">
           <span>🌡️</span>
           <h3>Temperature</h3>
@@ -41,9 +46,18 @@
 
         <article class="reading-card">
           <span>🌫️</span>
-          <h3>Smoke Sensor</h3>
+          <h3>MQ-2 Smoke Detector</h3>
           <p id="smoke">--</p>
+          <small>Raw sensor reading</small>
         </article>
+
+        <article class="reading-card">
+          <span>🔥</span>
+          <h3>MQ-5 Gas Detector</h3>
+          <p id="gas">--</p>
+          <small>LPG / Natural Gas · Raw reading</small>
+        </article>
+
       </div>
     </section>
 
@@ -60,8 +74,9 @@
     </section>
 
     <p class="disclaimer">
-      Educational prototype only. Not a certified fire alarm
-      or a replacement for certified smoke alarms or emergency systems.
+      Educational prototype only. Not a certified fire alarm,
+      gas detector or replacement for certified smoke, fire
+      and carbon monoxide alarms.
     </p>
   </main>
 
