@@ -17,7 +17,8 @@ const functions = firebase.functions();
 
 const temperatureDisplay = document.getElementById("temperature");
 const humidityDisplay = document.getElementById("humidity");
-const smokeDisplay = document.getElementById("smoke");
+const mq5Display = document.getElementById("mq5");
+const mq7Display = document.getElementById("mq7");
 const connectionDisplay = document.getElementById("connection");
 const alertDisplay = document.getElementById("alert");
 
