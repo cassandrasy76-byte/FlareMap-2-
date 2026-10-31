@@ -1,4 +1,4 @@
-// Initialize Firebase
+ // Initialize Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyANFcISiv0jZL7U4sefd5i0eIUqG7r7MDU",
   authDomain: "flaremap-a1849.firebaseapp.com",
@@ -172,11 +172,7 @@ enablePushButton?.addEventListener("click", async () => {
     }
 
   
-      FLAREMAP_VAPID_KEY ===
-      "BKxUMBei3vHExEPRaHhDrw0g0NJaO7r21gA5r0sG3fP-Y-qTgg9_t1_7ZMDKyg4Lwp0vHeNdK8deiPqvAEYk6Ds"
-    ) {
-      throw new Error("Add your Web Push public VAPID key first.");
-    }
+
 
     const permission = await Notification.requestPermission();
 
